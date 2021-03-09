@@ -1,12 +1,12 @@
 <template>
 
-<div class="ro">
+
 
             <img 
             :src="state.image.url" 
             alt="image">
 
-</div>
+
         
 
 </template>
@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 img {
-    height: 500px;
+    height: 600px;
   width: 800px;
 }
 </style>

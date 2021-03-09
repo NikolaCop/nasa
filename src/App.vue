@@ -1,13 +1,17 @@
 <template>
 
+
 <main>
-  
+  <div class="row">
+<div class="col-12">
 <form @submit.prevent="search">    
 <input class="mx-1" type="date" placeholder="" v-model="state.query">
 <button type="submit" class="btn btn-outline-light m-1"><i class="fas fa-search-plus"></i></button>
 </form>
-
 <Apod/>
+</div>
+</div>
+  
 
 </main>
 
@@ -47,7 +51,7 @@ export default {
 <style>
 
 #screen{
-  background-image: url("https://i.pinimg.com/originals/bd/8b/ff/bd8bffd78009eab632d34294f1b760bb.gif");
+  background-image: url("https://i.imgur.com/wJSu84m.gif");
   background-size: cover;
 }
 
