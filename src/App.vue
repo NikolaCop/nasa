@@ -1,20 +1,56 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+<main>
+  
+<form @submit.prevent="search">    
+<input class="mx-1" type="date" placeholder="" v-model="state.query">
+<button type="submit" class="btn btn-outline-light m-1"><i class="fas fa-search-plus"></i></button>
+</form>
+
+<Apod/>
+
+</main>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { apodService } from "./services/apodService"
+import { reactive, computed } from 'vue'
+import { AppState } from "./AppState"
+import Apod from "./components/Apod"
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  setup() {
+    const state = reactive({
+      query: '',
+      picture: computed(() => AppState.apod)
+    })
+    return {
+      state,
+      async search() {
+        try {
+          await apodService.getPicture(state.query)
+        } catch (error) {
+          console.error(error)
+        }
+      }
+    }
+  },
+   components: {
+    Apod,
   }
+ 
 }
 </script>
 
 <style>
+
+#screen{
+  background-image: url("https://i.pinimg.com/originals/bd/8b/ff/bd8bffd78009eab632d34294f1b760bb.gif");
+  background-size: cover;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +58,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+#nasa {
+height: 250px;
+width: 400px;
 }
 </style>
