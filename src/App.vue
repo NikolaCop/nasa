@@ -1,6 +1,4 @@
 <template>
-
-
 <main>
   <div class="row">
 <div class="col-12">
@@ -11,8 +9,6 @@
 <Apod/>
 </div>
 </div>
-  
-
 </main>
 
 </template>
@@ -51,7 +47,7 @@ export default {
 <style>
 
 #screen{
-  background-image: url("https://i.imgur.com/wJSu84m.gif");
+  background-image: url("https://i.pinimg.com/originals/4a/66/6b/4a666b16cf8a15b9687edb5085012589.jpg");
   background-size: cover;
 }
 
